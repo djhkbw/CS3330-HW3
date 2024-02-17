@@ -201,7 +201,7 @@ public class StockManagerSingleton
 
 	
 	//Gets the tape products that are below the given maxPrice
-	//need to create TapeRecordProduct
+	
 	public ArrayList<TapeRecordProduct> getTapeRecordList(ArrayList<MediaProduct> productList) {
 	    ArrayList<TapeRecordProduct> tapeRecordList = new ArrayList<>();
 	    for (MediaProduct product : productList) {
@@ -241,7 +241,7 @@ public class StockManagerSingleton
 		}
 	}
 
-	public Map<String, MediaProduct> getInventory() {
+	public ArrayList<MediaProduct> getInventory() {
 		try( BufferedReader reader = new BufferedReader(new FileReader(inventoryFilePath)))
 		{
 			String line;
