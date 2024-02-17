@@ -14,6 +14,10 @@ public class Main {
             stockManager.saveStock();
         	stockManager.getInventoryFilePath();
             stockManager.getInventory();
+            stockManager.setInventory(null);
+            stockManager.getMediaProductBelowPrice(0);
+            stockManager.getCDRecordsList(null);
+            stockManager.getTapeRecordList(null);
         } else {
         	System.out.println("Failed to read inventory data");
         }
