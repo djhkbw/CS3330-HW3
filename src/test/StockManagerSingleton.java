@@ -157,7 +157,7 @@ public class StockManagerSingleton
 
 	
 	//Gets the media products that are below the given maxPrice
-		public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
+	public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
 		    ArrayList<MediaProduct> belowPriceList = new ArrayList<>();
 		    for (MediaProduct product : inventory.values()) {
 		        if (product.getPrice() < maxPrice) {
@@ -169,7 +169,12 @@ public class StockManagerSingleton
 		    return belowPriceList;
 		}
 
-	
+	public void printListOfMediaProduct(ArrayList<MediaProduct> productList) {
+		    for (MediaProduct product : productList) {
+		        System.out.println(product); // Assuming MediaProduct class overrides toString() method
+		    }
+		}
+
 	//Gets the CD products that are below the given maxPrice
 	//need to create CDRecordProduct
 	public ArrayList<CDRecordProduct> getCDRecordsList(ArrayList<MediaProduct> productList)
