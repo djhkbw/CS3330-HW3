@@ -157,11 +157,18 @@ public class StockManagerSingleton
 
 	
 	//Gets the media products that are below the given maxPrice
-	public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice)
-	{
-		ArrayList<MediaProduct> list= new ArrayList<MediaProduct>();
-		return list;
-	}
+		public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
+		    ArrayList<MediaProduct> belowPriceList = new ArrayList<>();
+		    for (MediaProduct product : inventory.values()) {
+		        if (product.getPrice() < maxPrice) {
+		            // Add the product to the belowPriceList if its price is below maxPrice
+		            belowPriceList.add(product);
+		        }
+		    }
+		    // Return the ArrayList of media products below the maxPrice
+		    return belowPriceList;
+		}
+
 	
 	//Gets the CD products that are below the given maxPrice
 	//need to create CDRecordProduct
