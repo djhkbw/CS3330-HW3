@@ -11,7 +11,8 @@ public class Main {
             stockManager.addItem(new MediaProduct("Generic Rock Song", 19.99, 1999, MediaProduct.Genre.ROCK));
             stockManager.updateItemPrice(new MediaProduct("Generic Rock Song", 19.99, 1999, MediaProduct.Genre.ROCK), 13.29);
             stockManager.removeItem(new MediaProduct("Generic Rock Song", 19.99, 1999, MediaProduct.Genre.ROCK));
-        	
+            stockManager.saveStock();
+        	stockManager.getInventoryFilePath();
         } else {
         	System.out.println("Failed to read inventory data");
         }

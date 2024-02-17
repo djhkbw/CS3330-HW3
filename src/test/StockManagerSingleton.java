@@ -202,11 +202,57 @@ public class StockManagerSingleton
 	}
 
 	public String getInventoryFilePath() {
-		return inventoryFilePath;
+		try( BufferedReader reader = new BufferedReader(new FileReader(inventoryFilePath)))
+		{
+			String line;
+			while((line = reader.readLine()) != null)
+			{
+				String[] parts = line.split(",");
+				if(parts.length == 4)
+				{
+					String title = parts[0].trim();
+					double price = Double.parseDouble(parts[1].trim());
+					int year = Integer.parseInt(parts[2].trim());
+					Genre genre = Genre.valueOf(parts[3].trim());
+					MediaProduct product1 = new MediaProduct(title, price, year, genre);
+					inventory.put(title, product1);
+				}
+				
+			}
+			return inventoryFilePath;
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public Map<String, MediaProduct> getInventory() {
-		return inventory;
+		try( BufferedReader reader = new BufferedReader(new FileReader(inventoryFilePath)))
+		{
+			String line;
+			while((line = reader.readLine()) != null)
+			{
+				String[] parts = line.split(",");
+				if(parts.length == 4)
+				{
+					String title = parts[0].trim();
+					double price = Double.parseDouble(parts[1].trim());
+					int year = Integer.parseInt(parts[2].trim());
+					Genre genre = Genre.valueOf(parts[3].trim());
+					MediaProduct product1 = new MediaProduct(title, price, year, genre);
+					inventory.put(title, product1);
+				}
+				
+			}
+			return inventory;
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public void setInventory(Map<String, MediaProduct> inventory) {
