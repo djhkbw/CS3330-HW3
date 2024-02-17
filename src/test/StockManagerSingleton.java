@@ -175,21 +175,44 @@ public class StockManagerSingleton
 		    }
 		}
 
-	//Gets the CD products that are below the given maxPrice
-	//need to create CDRecordProduct
-	public ArrayList<CDRecordProduct> getCDRecordsList(ArrayList<MediaProduct> productList)
-	{
-		ArrayList<CDRecordProduct> list= new ArrayList<CDRecordProduct>();
-		return list;
+	//Gets the vinyl products that are below the given maxPrice
+	public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
+	    ArrayList<VinylRecordProduct> vinylRecordList = new ArrayList<>();
+	    for (MediaProduct product : productList) {
+	        if (product instanceof VinylRecordProduct) {
+	            // Check if the product is an instance of VinylRecordProduct
+	            vinylRecordList.add((VinylRecordProduct) product);
+	        }
+	    }
+	    return vinylRecordList;
 	}
+
+	//Gets the CD products that are below the given maxPrice
+	public ArrayList<CDRecordProduct> getCDRecordsList(ArrayList<MediaProduct> productList) {
+	    ArrayList<CDRecordProduct> cdRecordsList = new ArrayList<>();
+	    for (MediaProduct product : productList) {
+	        if (product instanceof CDRecordProduct) {
+	            // Check if the product is an instance of CDRecordProduct
+	            cdRecordsList.add((CDRecordProduct) product);
+	        }
+	    }
+	    return cdRecordsList;
+	}
+
 	
-	//Gets the CD products that are below the given maxPrice
+	//Gets the tape products that are below the given maxPrice
 	//need to create TapeRecordProduct
-	public ArrayList<TapeRecordProduct> getTapeRecordList(ArrayList<MediaProduct> productList)
-	{
-		ArrayList<TapeRecordProduct> list= new ArrayList<TapeRecordProduct>();
-		return list;
+	public ArrayList<TapeRecordProduct> getTapeRecordList(ArrayList<MediaProduct> productList) {
+	    ArrayList<TapeRecordProduct> tapeRecordList = new ArrayList<>();
+	    for (MediaProduct product : productList) {
+	        if (product instanceof TapeRecordProduct) {
+	            // Check if the product is an instance of TapeRecordProduct
+	            tapeRecordList.add((TapeRecordProduct) product);
+	        }
+	    }
+	    return tapeRecordList;
 	}
+
 
 	public String getInventoryFilePath() {
 		try( BufferedReader reader = new BufferedReader(new FileReader(inventoryFilePath)))
