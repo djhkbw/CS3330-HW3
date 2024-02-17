@@ -1,4 +1,5 @@
 package test;
+
 public class Main {
 	public static void main(String[] args) {
         StockManagerSingleton stockManager = StockManagerSingleton.getInstance();
@@ -70,4 +71,5 @@ public class Main {
         stockManager.printListOfMediaProduct(tapeRecordList);
     }
 } */
-}}
+}
+}
