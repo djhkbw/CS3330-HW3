@@ -52,10 +52,16 @@ public class StockManagerSingleton
 
 	
 	//updates the price of a media product
-	public boolean updateItemPrice(MediaProduct product, double newPrice)
-	{
-		return true;
+	public boolean updateItemPrice(MediaProduct product, double newPrice) {
+	    // Check if the product exists in the inventory
+	    if (inventory.containsKey(product.getTitle())) {
+	        // Update the price of the product
+	        product.setPrice(newPrice);
+	        return true; // Return true indicating successful update
+	    }
+	    return false; // Return false if the product does not exist in the inventory
 	}
+
 	
 	//adds an item to the file
 	public boolean addItem(MediaProduct product)
