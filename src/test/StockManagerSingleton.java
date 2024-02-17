@@ -1,17 +1,26 @@
 package test;
-import java.io.FileInputStream;
+import java.util.*;
 import java.util.ArrayList;
 
 public class StockManagerSingleton
 {
 	private static StockManagerSingleton instance = null;
 	
-	private StockManagerSingleton() {}
+	private final String inventoryFilePath;
+	private Map<String, MediaProduct> inventory;
+	
+	private StockManagerSingleton() {
+        inventoryFilePath = "inventory.csv"; // Initialize inventoryFilePath in the constructor
+        setInventory(new HashMap<>());
+    }
 	
 	public static synchronized StockManagerSingleton getInstance()
 	{
+		if(instance == null) {
 		instance = new StockManagerSingleton();
+		}
 		return instance;
+		
 	}
 	
 	//reads the inventory data from file
@@ -65,6 +74,18 @@ public class StockManagerSingleton
 	{
 		ArrayList<TapeRecordProduct> list= new ArrayList<TapeRecordProduct>();
 		return list;
+	}
+
+	public String getInventoryFilePath() {
+		return inventoryFilePath;
+	}
+
+	public Map<String, MediaProduct> getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(Map<String, MediaProduct> inventory) {
+		this.inventory = inventory;
 	}
 	
 }
