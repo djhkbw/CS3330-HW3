@@ -5,11 +5,22 @@ public class MediaProduct {
 	private String title;
 	private double price;
 	private int year;
+	private Genre Genre;
 	
-	public MediaProduct(String title, double price, int year) {
+	enum Genre {
+		ROCK,
+		POP,
+		JAZZ,
+		CLASSICAL,
+		HIP_HOP,
+		ELECTRONIC,
+		CHILDREN
+	}
+	public MediaProduct(String title, double price, int year,Genre genre) {
 		this.title = title;
 		this.price = price;
 		this.year = year;
+		this.Genre = genre;
 	}
 	
 	public String getTitle() {
@@ -33,4 +44,11 @@ public class MediaProduct {
 		this.year = year;
 	}
 	
+	public Genre getGenre() {
+		return this.getGenre();
+	}
+	
+	public void setGenre(Genre genre) {
+		this.Genre = genre;
+	}
 }
