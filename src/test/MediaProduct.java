@@ -6,14 +6,31 @@ public class MediaProduct {
 	private double price;
 	private int year;
 	
-	private enum Genre {
-		ROCK,
-		POP,
-		JAZZ,
-		CLASSICAL,
-		HIP_HOP,
-		ELECTRONIC,
-		CHILDREN
+	public MediaProduct(String title, double price, int year) {
+		this.title = title;
+		this.price = price;
+		this.year = year;
+	}
+	
+	public String getTitle() {
+		return this.title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public double getPrice() {
+		return this.price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	public int getYear() {
+		return this.year;
+	}
+	public void setYear(int year) {
+		this.year = year;
 	}
 	
 }
