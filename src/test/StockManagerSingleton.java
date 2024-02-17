@@ -80,6 +80,39 @@ public class StockManagerSingleton
             return false;
         }
     }
+
+
+    //adds an item to the file
+    public boolean addItem(MediaProduct product)
+    {
+        try( BufferedReader reader = new BufferedReader(new FileReader(inventoryFilePath)))
+        {
+            String line;
+            while((line = reader.readLine()) != null)
+            {
+                String[] parts = line.split(",");
+                if(parts.length == 4)
+                {
+                    String title = parts[0].trim();
+                    double price = Double.parseDouble(parts[1].trim());
+                    int year = Integer.parseInt(parts[2].trim());
+                    Genre genre = Genre.valueOf(parts[3].trim());
+                    MediaProduct product1 = new MediaProduct(title, price, year, genre);
+                    if(product1.equals(product))
+                    {
+                        return false;
+                    }
+                }
+                
+            }
+            return true;
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
     
 
 	
