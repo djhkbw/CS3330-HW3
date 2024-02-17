@@ -1,6 +1,11 @@
 package test;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 import java.util.ArrayList;
+
+import test.MediaProduct.Genre;
 
 public class StockManagerSingleton
 {
@@ -24,10 +29,27 @@ public class StockManagerSingleton
 	}
 	
 	//reads the inventory data from file
-	public boolean initializeStock()
-	{
-		return true;
+	public boolean initializeStock() {
+	    try (BufferedReader reader = new BufferedReader(new FileReader(inventoryFilePath))) {
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            String[] parts = line.split(",");
+	            if (parts.length == 4) { // Assuming CSV format: title,price,year,genre
+	                String title = parts[0].trim();
+	                double price = Double.parseDouble(parts[1].trim());
+	                int year = Integer.parseInt(parts[2].trim());
+	                Genre genre = Genre.valueOf(parts[3].trim());
+	                MediaProduct product = new MediaProduct(title, price, year, genre);
+	                inventory.put(title, product);
+	            }
+	        }
+	        return !inventory.isEmpty(); // Return true if inventory is not empty
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return false; // Return false if an exception occurs (file not found, etc.)
+	    }
 	}
+
 	
 	//updates the price of a media product
 	public boolean updateItemPrice(MediaProduct product, double newPrice)
