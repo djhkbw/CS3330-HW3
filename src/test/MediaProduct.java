@@ -16,12 +16,21 @@ public class MediaProduct {
 		ELECTRONIC,
 		CHILDREN
 	}
+	
 	public MediaProduct(String title, double price, int year,Genre genre) {
 		this.title = title;
 		this.price = price;
 		this.year = year;
 		this.Genre = genre;
 	}
+	
+	// Copy constructor
+    public MediaProduct(MediaProduct other) {
+        this.title = other.title;
+        this.price = other.price;
+        this.year = other.year;
+        this.Genre = other.Genre;
+    }
 	
 	public String getTitle() {
 		return this.title;
