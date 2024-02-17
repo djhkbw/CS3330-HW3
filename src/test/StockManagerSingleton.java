@@ -51,30 +51,6 @@ public class StockManagerSingleton
 	}
 
 	
-	//updates the price of a media product
-	public boolean updateItemPrice(MediaProduct product, double newPrice)
-	{
-		return true;
-	}
-	
-	//adds an item to the file
-	public boolean addItem(MediaProduct product)
-	{
-		return true;
-	}
-	
-	//removes item from the file
-	public boolean removeItem(MediaProduct product)
-	{
-		return true;
-	}
-	
-	//Saves the updated inventory back to the CSV file
-	public boolean saveStock()
-	{
-		return true;
-	}
-	
 	//Gets the media products that are below the given maxPrice
 	public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice)
 	{
