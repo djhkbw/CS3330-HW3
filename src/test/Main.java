@@ -13,6 +13,7 @@ public class Main {
             stockManager.removeItem(new MediaProduct("Generic Rock Song", 19.99, 1999, MediaProduct.Genre.ROCK));
             stockManager.saveStock();
         	stockManager.getInventoryFilePath();
+            stockManager.getInventory();
         } else {
         	System.out.println("Failed to read inventory data");
         }
